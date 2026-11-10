@@ -1,0 +1,14 @@
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\bin\Debug\net10.0\Examen_Egoitz.exe
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\bin\Debug\net10.0\Examen_Egoitz.deps.json
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\bin\Debug\net10.0\Examen_Egoitz.runtimeconfig.json
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\bin\Debug\net10.0\Examen_Egoitz.dll
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\bin\Debug\net10.0\Examen_Egoitz.pdb
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.AssemblyInfoInputs.cache
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.AssemblyInfo.cs
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.csproj.CoreCompileInputs.cache
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.dll
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\refint\Examen_Egoitz.dll
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.pdb
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.genruntimeconfig.cache
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\ref\Examen_Egoitz.dll
