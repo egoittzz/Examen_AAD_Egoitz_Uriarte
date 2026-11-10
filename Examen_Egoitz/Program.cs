@@ -174,7 +174,7 @@ void mayoresMVP()
         // Leemos el fichero.
         string[] lineas = leerFichero();
 
-        foreach (String line in lineas)
+        foreach (String line in lineas.Skip(1))
         {
             String[] registro = line.Split(',');
 
@@ -251,7 +251,6 @@ void Clasificacion()
     int contador = 10000;
     Dictionary<string,int> ranking = new Dictionary<string,int>();
     Dictionary<string,int> diferencia_canastas = new Dictionary<string, int>();
-    Dictionary<string,int> clasificacion_final = new Dictionary<string, int>();
 
     // Leemos el fichero y saltamos la primera línea porque contiene los encabezados.
     string [] lineas = leerFichero();
@@ -355,7 +354,7 @@ void Guardar_archivos_con_nombres_equipos()
     try
     {
 
-        string[] equipos = new string[20];
+        string[] equipos = new string[18];
         string[] lineas = leerFichero();
         int cont = 0;
         foreach(String Line in lineas)
