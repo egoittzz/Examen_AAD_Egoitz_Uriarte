@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Examen_Egoitz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+474909b0730df11637a01f765a1117b76b17e524")]
 [assembly: System.Reflection.AssemblyProductAttribute("Examen_Egoitz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Examen_Egoitz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

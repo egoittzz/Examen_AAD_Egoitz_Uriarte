@@ -12,3 +12,4 @@ C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debu
 C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.pdb
 C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.genruntimeconfig.cache
 C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\ref\Examen_Egoitz.dll
+C:\Users\egoit\OneDrive\Escritorio\Examen_Acceso_ a_datos\Examen_Egoitz\obj\Debug\net10.0\Examen_Egoitz.sourcelink.json

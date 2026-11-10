@@ -30,7 +30,7 @@ while (decision != 6)
         break;
         default:
             Console.WriteLine("Opcion no valida");
-        break;
+            break;
 
     }
 
@@ -51,260 +51,283 @@ void menu()
 
 void Buscar_estadisticas_equipo()
 {
-    Console.WriteLine("¿De qué equipo necesitas saber las estadísticas?");
-    string equipo = Console.ReadLine();
+    try
+    {
+        Console.WriteLine("¿De qué equipo necesitas saber las estadísticas?");
+        string equipo = Console.ReadLine();
 
-    Buscar_estadisticas_equipo_nombre(equipo);
+        Buscar_estadisticas_equipo_nombre(equipo);
+    }
+    catch (Exception error)
+    {
+        Console.WriteLine("A ocurrido un erro :" + error.Message);
+    }
 }
 
 void Buscar_estadisticas_equipo_nombre(string equipo)
 {
-    List<string> archivo_contenido = new List<string>();
-
-    string ruta = crear_archivo(equipo);
-    string[] lineas = leerFichero();
-
-    archivo_contenido.Add("======================================================");
-    archivo_contenido.Add("                  " + equipo + "                        ");
-    archivo_contenido.Add("======================================================");
-
-    Console.WriteLine("======================================================");
-    Console.WriteLine("                  " + equipo + "                        ");
-    Console.WriteLine("======================================================");
-
-    foreach (string line in lineas.Skip(1))
+    try
     {
-        string[] registros = line.Split(',');
+        List<string> archivo_contenido = new List<string>();
 
-        if (registros[1].Equals(equipo) || registros[2].Equals(equipo))
+        string ruta = crear_archivo(equipo);
+        string[] lineas = leerFichero();
+
+        archivo_contenido.Add("======================================================");
+        archivo_contenido.Add("                  " + equipo + "                        ");
+        archivo_contenido.Add("======================================================");
+
+        Console.WriteLine("======================================================");
+        Console.WriteLine("                  " + equipo + "                        ");
+        Console.WriteLine("======================================================");
+
+        foreach (string line in lineas.Skip(1))
         {
-            archivo_contenido.Add(registros[0]);
-            archivo_contenido.Add(registros[1] + " Contra " + registros[2]);
-            archivo_contenido.Add("Resultado : " + registros[3]);
-            archivo_contenido.Add("MVP del partido : " + registros[4]);
-            archivo_contenido.Add("Mejor equipo del partido : " + registros[8]);
-            archivo_contenido.Add("-----------------------------------------------------------------");
+            string[] registros = line.Split(',');
 
-            Console.WriteLine(registros[0]);
-            Console.WriteLine(registros[1] + " Contra " + registros[2]);
-            Console.WriteLine("Resultado : " + registros[3]);
-            Console.WriteLine("MVP del partido : " + registros[4]);
-            Console.WriteLine("Mejor equipo del partido : " + registros[8]);
-            Console.WriteLine("-----------------------------------------------------------------");
+            if (registros[1].Equals(equipo) || registros[2].Equals(equipo))
+            {
+                archivo_contenido.Add(registros[0]);
+                archivo_contenido.Add(registros[1] + " Contra " + registros[2]);
+                archivo_contenido.Add("Resultado : " + registros[3]);
+                archivo_contenido.Add("MVP del partido : " + registros[4]);
+                archivo_contenido.Add("Mejor equipo del partido : " + registros[8]);
+                archivo_contenido.Add("-----------------------------------------------------------------");
+
+                Console.WriteLine(registros[0]);
+                Console.WriteLine(registros[1] + " Contra " + registros[2]);
+                Console.WriteLine("Resultado : " + registros[3]);
+                Console.WriteLine("MVP del partido : " + registros[4]);
+                Console.WriteLine("Mejor equipo del partido : " + registros[8]);
+                Console.WriteLine("-----------------------------------------------------------------");
+            }
         }
-    }
 
-    File.WriteAllLines(ruta, archivo_contenido);
+        File.WriteAllLines(ruta, archivo_contenido);
+    }
+    catch (Exception error)
+    {
+        Console.WriteLine("Lo sentimos a ocurrido un error :" + error.Message);
+    }
 }
 void Buscar_jornada()
 {
-    List<string> archivo_contenido_jornada = new List<string>();
-    Console.WriteLine("De que jornada quieres ver los datos");
-    string Jornada = Console.ReadLine();
-    string ruta = crear_archivo(Jornada);
-    Jornada = Jornada.ToLower();
-    string [] lineas  = leerFichero();
-    archivo_contenido_jornada.Add("============================================================");
-    archivo_contenido_jornada.Add("             Partidos Jugados en la "+Jornada+ "            ");
-    archivo_contenido_jornada.Add("============================================================");
-    Console.WriteLine("============================================================");
-    Console.WriteLine("             Partidos Jugados en la "+Jornada+ "            ");
-    Console.WriteLine("============================================================");
-    foreach(string line in lineas)
+    try
     {
-        String [] registros = line.Split(',');
-
-        if (registros[0].ToLower().Equals(Jornada))
+        List<string> archivo_contenido_jornada = new List<string>();
+        Console.WriteLine("De que jornada quieres ver los datos");
+        string Jornada = Console.ReadLine();
+        string ruta = crear_archivo(Jornada);
+        Jornada = Jornada.ToLower();
+        string[] lineas = leerFichero();
+        archivo_contenido_jornada.Add("============================================================");
+        archivo_contenido_jornada.Add("             Partidos Jugados en la " + Jornada + "            ");
+        archivo_contenido_jornada.Add("============================================================");
+        Console.WriteLine("============================================================");
+        Console.WriteLine("             Partidos Jugados en la " + Jornada + "            ");
+        Console.WriteLine("============================================================");
+        foreach (string line in lineas)
         {
-            archivo_contenido_jornada.Add(registros[1] +" "+ registros[3]+" "+ registros[2]);
-            archivo_contenido_jornada.Add("MVP del partido : " + registros[4]);
-            archivo_contenido_jornada.Add("Mejor equipo del partido : " + registros[8]);
-            archivo_contenido_jornada.Add("-----------------------------------------------------------------");
+            String[] registros = line.Split(',');
 
-            Console.WriteLine(registros[1] +" "+ registros[3]+" "+ registros[2]);
-            Console.WriteLine("MVP del partido : " + registros[4]);
-            Console.WriteLine("Mejor equipo del partido : " + registros[8]);
-            Console.WriteLine("-----------------------------------------------------------------");
+            if (registros[0].ToLower().Equals(Jornada))
+            {
+                archivo_contenido_jornada.Add(registros[1] + " " + registros[3] + " " + registros[2]);
+                archivo_contenido_jornada.Add("MVP del partido : " + registros[4]);
+                archivo_contenido_jornada.Add("Mejor equipo del partido : " + registros[8]);
+                archivo_contenido_jornada.Add("-----------------------------------------------------------------");
+
+                Console.WriteLine(registros[1] + " " + registros[3] + " " + registros[2]);
+                Console.WriteLine("MVP del partido : " + registros[4]);
+                Console.WriteLine("Mejor equipo del partido : " + registros[8]);
+                Console.WriteLine("-----------------------------------------------------------------");
+
+            }
+
 
         }
-        
-
+        File.WriteAllLines(ruta, archivo_contenido_jornada);
     }
-    File.WriteAllLines(ruta,archivo_contenido_jornada);
+    catch (Exception error)
+    {
+        Console.WriteLine("Lo sentimos a ocurrido un error :" + error.Message);
+    }
 }
+
 void mayoresMVP()
 {
-    List<string> Mejores3Jugadores = new List<string>();
-    String jugador1 = "" ;
-    int veces1 = 0 ;
-    String jugador2 = "" ;
-    int veces2 = 0 ;
-    String jugador3 = "";
-    int veces3 = 0 ;
-    Dictionary<string,int> JugadoresMVP = new Dictionary<string, int>();
-    string [] lineas  = leerFichero();
-    foreach(String line in lineas)
+    try
     {
-        String [] registro = line.Split(',');
 
-        String Jugador_mvp = registro[4];
+        // Variables para guardar los tres mejores jugadores.
+        List<string> Mejores3Jugadores = new List<string>();
+        String jugador1 = "";
+        int veces1 = 0;
+        String jugador2 = "";
+        int veces2 = 0;
+        String jugador3 = "";
+        int veces3 = 0;
 
-        if (JugadoresMVP.ContainsKey(Jugador_mvp))
+        // Diccionario para contar los MVP de cada jugador.
+        Dictionary<string, int> JugadoresMVP = new Dictionary<string, int>();
+
+        // Leemos el fichero.
+        string[] lineas = leerFichero();
+
+        foreach (String line in lineas)
         {
-            JugadoresMVP[Jugador_mvp]++;
+            String[] registro = line.Split(',');
 
+            // Obtenemos el jugador MVP.
+            String Jugador_mvp = registro[4];
+
+            // Contamos cuántas veces aparece cada jugador.
+            if (JugadoresMVP.ContainsKey(Jugador_mvp))
+            {
+                JugadoresMVP[Jugador_mvp]++;
+            }
+            else
+            {
+                JugadoresMVP[Jugador_mvp] = 1;
+            }
         }
-        else
+
+        // Buscamos los tres jugadores con más MVP.
+        foreach (KeyValuePair<string, int> jugadores in JugadoresMVP)
         {
-            JugadoresMVP[Jugador_mvp] = 1;
-
-
-
+            if (jugadores.Value > veces1)
+            {
+                jugador3 = jugador2;
+                veces3 = veces2;
+                jugador2 = jugador1;
+                veces2 = veces1;
+                jugador1 = jugadores.Key;
+                veces1 = jugadores.Value;
+            }
+            else if (jugadores.Value > veces2)
+            {
+                jugador3 = jugador2;
+                veces3 = veces2;
+                jugador2 = jugadores.Key;
+                veces2 = jugadores.Value;
+            }
+            else if (jugadores.Value > veces3)
+            {
+                jugador3 = jugadores.Key;
+                veces3 = jugadores.Value;
+            }
         }
 
+        // Creamos el archivo para guardar los resultados.
+        string ruta = crear_archivo("Los_tres_mejores_jugadores");
 
+        // Guardamos los resultados en la lista.
+        Mejores3Jugadores.Add("===========================================");
+        Mejores3Jugadores.Add("     Mejores 3 jugadores de la temporada   ");
+        Mejores3Jugadores.Add("===========================================");
+        Mejores3Jugadores.Add(" El primer jugador es " + jugador1 + " siendo MVP " + veces1 + " veces");
+        Mejores3Jugadores.Add(" El segundo jugador es " + jugador2 + " siendo MVP " + veces2 + " veces");
+        Mejores3Jugadores.Add(" El tercer jugador es " + jugador3 + " siendo MVP " + veces3 + " veces");
+
+        // Mostramos los resultados por consola.
+        Console.WriteLine("===========================================");
+        Console.WriteLine("     Mejores 3 jugadores de la temporada   ");
+        Console.WriteLine("===========================================");
+        Console.WriteLine(" El primer jugador es " + jugador1 + " siendo MVP " + veces1 + " veces");
+        Console.WriteLine(" El segundo jugador es " + jugador2 + " siendo MVP " + veces2 + " veces");
+        Console.WriteLine(" El tercer jugador es " + jugador3 + " siendo MVP " + veces3 + " veces");
+
+        // Escribimos los resultados en el archivo.
+        File.WriteAllLines(ruta, Mejores3Jugadores);
     }
-
-    foreach(KeyValuePair<string,int>jugadores in JugadoresMVP)
+    catch (Exception error)
     {
-        if (jugadores.Value > veces1)
-        {
-            jugador3 = jugador2;
-            veces3 = veces2;
-            jugador2 = jugador1;
-            veces2 = veces1;
-            jugador1 = jugadores.Key;      
-            veces1 = jugadores.Value;
-        }
-        else if (jugadores.Value > veces2)
-        {
-            jugador3 = jugador2;
-            veces3 = veces2;
-            jugador2 = jugadores.Key;
-            veces2 = jugadores.Value;
-        }
-        else if (jugadores.Value > veces3)
-        {
-            jugador3 = jugadores.Key;
-            veces3 = jugadores.Value;
-        }
+        Console.WriteLine("Lo sentimos a ocurrido un error :" + error.Message);
     }
-    string ruta = crear_archivo("Los_tres_mejores_jugadores");
-
-    Mejores3Jugadores.Add("===========================================");
-    Mejores3Jugadores.Add("     Mejores 3 jugadores de la temporada   ");
-    Mejores3Jugadores.Add("===========================================");
-    Mejores3Jugadores.Add(" El primer jugador es " + jugador1 + " siendo MVP "+veces1+ " veces");
-    Mejores3Jugadores.Add(" El primer jugador es " + jugador2 + " siendo MVP "+veces2+ " veces");
-    Mejores3Jugadores.Add(" El primer jugador es " + jugador3 + " siendo MVP "+veces3+ " veces");
-
-    Console.WriteLine("===========================================");
-    Console.WriteLine("     Mejores 3 jugadores de la temporada   ");
-    Console.WriteLine("===========================================");
-    Console.WriteLine(" El primer jugador es " + jugador1 + " siendo MVP "+veces1+ " veces");
-    Console.WriteLine(" El primer jugador es " + jugador2 + " siendo MVP "+veces2+ " veces");
-    Console.WriteLine(" El primer jugador es " + jugador3 + " siendo MVP "+veces3+ " veces");
-
-    File.WriteAllLines(ruta,Mejores3Jugadores);
-
 }
 void Clasificacion()
 {
+    // Diccionarios para guardar los puntos y la diferencia de canastas de cada equipo.
     int contador = 10000;
     Dictionary<string,int> ranking = new Dictionary<string,int>();
     Dictionary<string,int> diferencia_canastas = new Dictionary<string, int>();
     Dictionary<string,int> clasificacion_final = new Dictionary<string, int>();
-    string [] lineas  = leerFichero();
+
+    // Leemos el fichero y saltamos la primera línea porque contiene los encabezados.
+    string [] lineas = leerFichero();
     foreach(string line in lineas.Skip(1))
     {
+        // Separamos los datos del partido y obtenemos las canastas de cada equipo.
         String [] registro = line.Split(',');
-
         String [] resultado = registro[3].Split('-');
 
         int equipo_local = int.Parse(resultado[0]);
         int equipo_visitante = int.Parse(resultado[1]);
 
-        //SACAR LOS PUNTOS GANAR EQUIPO LOCAL
+        // REPARTO DE PUNTOS.
+        // Si gana el local recibe 3 puntos; si gana el visitante también.
         if (equipo_local > equipo_visitante)
         {
+            // Si el equipo existe sumamos 3 puntos, si no lo añadimos al diccionario.
             if (ranking.ContainsKey(registro[1]))
-            {
-                ranking[registro[1]]=ranking[registro[1]]+3;
-            }
+                ranking[registro[1]] = ranking[registro[1]] + 3;
             else
-            {
-                ranking[registro[1]]= 3;
-            }
+                ranking[registro[1]] = 3;
         }
-        //SACAR LOS PUNTOS GANAR EQUIPO VISITANTE
         else if(equipo_local < equipo_visitante)
         {
             if (ranking.ContainsKey(registro[2]))
-            {
-                ranking[registro[2]]=ranking[registro[2]]+3;
-            }
+                ranking[registro[2]] = ranking[registro[2]] + 3;
             else
-            {
-                ranking[registro[2]]= 3;
-            }
+                ranking[registro[2]] = 3;
         }
-        //SACAR LOS PUNTOS EMPATES
+        // Si empatan, cada equipo recibe 1 punto.
         else
         {
-            if(ranking.ContainsKey(registro[1])&& ranking.ContainsKey(registro[2]))
-            {
-                ranking[registro[1]]=ranking[registro[1]]+1;
-                ranking[registro[2]]=ranking[registro[2]]+1;
-            }
+            if(ranking.ContainsKey(registro[1]))
+                ranking[registro[1]]++;
             else
-            {
-                ranking[registro[1]]= 1;
-                ranking[registro[2]]= 1;
-            }
+                ranking[registro[1]] = 1;
+
+            if(ranking.ContainsKey(registro[2]))
+                ranking[registro[2]]++;
+            else
+                ranking[registro[2]] = 1;
         }
 
-        //SACAR LAS CANASTAS METERLAS EN EL DICCIONARIO PARA EN CASO DE EMPATE 
-        //PARA EL QUIPO LOCAL
+        // Calculamos la diferencia de canastas: canastas anotadas menos recibidas.
+        // Si el equipo ya existe acumulamos la diferencia del partido.
         if (diferencia_canastas.ContainsKey(registro[1]))
-        {
-            diferencia_canastas[registro[1]] = diferencia_canastas[registro[1]] + equipo_local -equipo_visitante;
-        }
+            diferencia_canastas[registro[1]] += equipo_local - equipo_visitante;
         else
-        {
-            diferencia_canastas[registro[1]] =  equipo_local -equipo_visitante;
-        }
-        //PARA EL EQUIPO VISITANTE
-        //ESTA METIDO YA 
-        if (diferencia_canastas.ContainsKey(registro[2])){
+            diferencia_canastas[registro[1]] = equipo_local - equipo_visitante;
 
-            diferencia_canastas[registro[2]] = diferencia_canastas[registro[2]] + equipo_visitante - equipo_local;
-        }
-        //NO ESTA METIDO
+        if (diferencia_canastas.ContainsKey(registro[2]))
+            diferencia_canastas[registro[2]] += equipo_visitante - equipo_local;
         else
-        {
-            diferencia_canastas[registro[2]] =  equipo_visitante - equipo_local;
-        }
-
-
+            diferencia_canastas[registro[2]] = equipo_visitante - equipo_local;
     }
 
+    // Creamos una lista con los nombres de los equipos para poder ordenarlos.
     List<string> equipos = new List<string>(ranking.Keys);
 
-    // 'i' cuenta las pasadas completas a la lista
+    // MÉTODO DE LA BURBUJA.
+    // i controla las pasadas y j compara los equipos consecutivos.
     for (int i = 0; i < equipos.Count - 1; i++)
     {
-        // 'j' compara parejas de equipos adyacentes. 
-        // El '- i' evita volver a revisar el final que ya está ordenado.
+        // Restamos i para no volver a comparar los equipos ya ordenados.
         for (int j = 0; j < equipos.Count - 1 - i; j++)
         {
+            // Guardamos los dos equipos que vamos a comparar.
             string equipoA = equipos[j];
             string equipoB = equipos[j + 1];
 
-            // Si B tiene más puntos, o si empatan y B tiene mejor diferencia de canastas
+            // Ordenamos de mayor a menor puntuación.
+            // Si empatan, colocamos primero al que tenga mejor diferencia de canastas.
             if (ranking[equipoB] > ranking[equipoA] ||
                (ranking[equipoB] == ranking[equipoA] && diferencia_canastas[equipoB] > diferencia_canastas[equipoA]))
             {
-                // Intercambiamos posiciones en la lista
+                // Intercambiamos sus posiciones utilizando una variable temporal.
                 string temp = equipos[j];
                 equipos[j] = equipos[j + 1];
                 equipos[j + 1] = temp;
@@ -312,13 +335,12 @@ void Clasificacion()
         }
     }
 
-    // -------------------------------------------------------------
-    // MOSTRAR RESULTADOS ORDENADOS
-    // -------------------------------------------------------------
+    // MOSTRAMOS LA CLASIFICACIÓN ORDENADA.
     Console.WriteLine("=================================================");
     Console.WriteLine("          CLASIFICACIÓN DE LA LIGA               ");
     Console.WriteLine("=================================================");
 
+    // Recorremos los equipos ordenados mostrando su posición, puntos y diferencia.
     int posicion = 1;
     foreach (string equipo in equipos)
     {
@@ -327,16 +349,11 @@ void Clasificacion()
     }
 
     Console.WriteLine("=================================================");
-
-
-
 }
 void Guardar_archivos_con_nombres_equipos()
 {
     try
     {
-
-        Directory.CreateDirectory("./Carpeta_equipos");
 
         string[] equipos = new string[20];
         string[] lineas = leerFichero();
